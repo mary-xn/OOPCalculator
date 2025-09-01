@@ -151,4 +151,9 @@
 
     End Sub
 
+    Private Sub btnDecimal_Click(sender As Object, e As EventArgs) Handles btnDecimal.Click
+        If Not (txtbox1.Text.Contains(".")) Then
+            txtbox1.Text += "."
+        End If
+    End Sub
 End Class
