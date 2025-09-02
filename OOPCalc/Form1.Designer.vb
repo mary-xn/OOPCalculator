@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class Calculator
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -35,18 +35,21 @@ Partial Class Form1
         btn8 = New Button()
         btn7 = New Button()
         btnDivide = New Button()
-        btnClear = New Button()
+        btnAllClear = New Button()
         btnDecimal = New Button()
         btn0 = New Button()
         Button17 = New Button()
         txtbox1 = New TextBox()
         txtbox2 = New TextBox()
+        btnPlusOrMinus = New Button()
+        btnPercentage = New Button()
+        btnClear = New Button()
         SuspendLayout()
         ' 
         ' btn1
         ' 
-        btn1.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn1.Location = New Point(12, 121)
+        btn1.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btn1.Location = New Point(12, 364)
         btn1.Name = "btn1"
         btn1.Size = New Size(75, 65)
         btn1.TabIndex = 0
@@ -55,8 +58,8 @@ Partial Class Form1
         ' 
         ' btn2
         ' 
-        btn2.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn2.Location = New Point(93, 121)
+        btn2.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btn2.Location = New Point(93, 364)
         btn2.Name = "btn2"
         btn2.Size = New Size(75, 65)
         btn2.TabIndex = 1
@@ -65,8 +68,8 @@ Partial Class Form1
         ' 
         ' btn3
         ' 
-        btn3.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn3.Location = New Point(174, 121)
+        btn3.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btn3.Location = New Point(171, 364)
         btn3.Name = "btn3"
         btn3.Size = New Size(75, 65)
         btn3.TabIndex = 2
@@ -75,8 +78,8 @@ Partial Class Form1
         ' 
         ' btnAdd
         ' 
-        btnAdd.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnAdd.Location = New Point(255, 121)
+        btnAdd.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btnAdd.Location = New Point(252, 364)
         btnAdd.Name = "btnAdd"
         btnAdd.Size = New Size(75, 65)
         btnAdd.TabIndex = 3
@@ -85,8 +88,8 @@ Partial Class Form1
         ' 
         ' btnSubtract
         ' 
-        btnSubtract.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnSubtract.Location = New Point(252, 209)
+        btnSubtract.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btnSubtract.Location = New Point(255, 293)
         btnSubtract.Name = "btnSubtract"
         btnSubtract.Size = New Size(75, 65)
         btnSubtract.TabIndex = 7
@@ -95,8 +98,8 @@ Partial Class Form1
         ' 
         ' btn6
         ' 
-        btn6.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn6.Location = New Point(171, 209)
+        btn6.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btn6.Location = New Point(171, 293)
         btn6.Name = "btn6"
         btn6.Size = New Size(75, 65)
         btn6.TabIndex = 6
@@ -105,8 +108,8 @@ Partial Class Form1
         ' 
         ' btn5
         ' 
-        btn5.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn5.Location = New Point(90, 209)
+        btn5.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btn5.Location = New Point(90, 293)
         btn5.Name = "btn5"
         btn5.Size = New Size(75, 65)
         btn5.TabIndex = 5
@@ -115,8 +118,8 @@ Partial Class Form1
         ' 
         ' btn4
         ' 
-        btn4.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn4.Location = New Point(9, 209)
+        btn4.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btn4.Location = New Point(12, 293)
         btn4.Name = "btn4"
         btn4.Size = New Size(75, 65)
         btn4.TabIndex = 4
@@ -125,18 +128,18 @@ Partial Class Form1
         ' 
         ' btnMultiply
         ' 
-        btnMultiply.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnMultiply.Location = New Point(255, 295)
+        btnMultiply.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btnMultiply.Location = New Point(252, 222)
         btnMultiply.Name = "btnMultiply"
         btnMultiply.Size = New Size(75, 65)
         btnMultiply.TabIndex = 11
-        btnMultiply.Text = "*"
+        btnMultiply.Text = "×"
         btnMultiply.UseVisualStyleBackColor = True
         ' 
         ' btn9
         ' 
-        btn9.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn9.Location = New Point(174, 295)
+        btn9.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btn9.Location = New Point(171, 222)
         btn9.Name = "btn9"
         btn9.Size = New Size(75, 65)
         btn9.TabIndex = 10
@@ -145,8 +148,8 @@ Partial Class Form1
         ' 
         ' btn8
         ' 
-        btn8.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn8.Location = New Point(93, 295)
+        btn8.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btn8.Location = New Point(90, 222)
         btn8.Name = "btn8"
         btn8.Size = New Size(75, 65)
         btn8.TabIndex = 9
@@ -155,8 +158,8 @@ Partial Class Form1
         ' 
         ' btn7
         ' 
-        btn7.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn7.Location = New Point(12, 295)
+        btn7.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btn7.Location = New Point(12, 222)
         btn7.Name = "btn7"
         btn7.Size = New Size(75, 65)
         btn7.TabIndex = 8
@@ -165,28 +168,28 @@ Partial Class Form1
         ' 
         ' btnDivide
         ' 
-        btnDivide.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnDivide.Location = New Point(255, 381)
+        btnDivide.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnDivide.Location = New Point(252, 151)
         btnDivide.Name = "btnDivide"
         btnDivide.Size = New Size(75, 65)
         btnDivide.TabIndex = 15
-        btnDivide.Text = "/"
+        btnDivide.Text = "÷"
         btnDivide.UseVisualStyleBackColor = True
         ' 
-        ' btnClear
+        ' btnAllClear
         ' 
-        btnClear.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnClear.Location = New Point(174, 381)
-        btnClear.Name = "btnClear"
-        btnClear.Size = New Size(75, 65)
-        btnClear.TabIndex = 14
-        btnClear.Text = "C"
-        btnClear.UseVisualStyleBackColor = True
+        btnAllClear.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnAllClear.Location = New Point(90, 151)
+        btnAllClear.Name = "btnAllClear"
+        btnAllClear.Size = New Size(75, 65)
+        btnAllClear.TabIndex = 14
+        btnAllClear.Text = "C"
+        btnAllClear.UseVisualStyleBackColor = True
         ' 
         ' btnDecimal
         ' 
-        btnDecimal.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnDecimal.Location = New Point(93, 381)
+        btnDecimal.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btnDecimal.Location = New Point(90, 435)
         btnDecimal.Name = "btnDecimal"
         btnDecimal.Size = New Size(75, 65)
         btnDecimal.TabIndex = 13
@@ -195,8 +198,8 @@ Partial Class Form1
         ' 
         ' btn0
         ' 
-        btn0.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn0.Location = New Point(12, 381)
+        btn0.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btn0.Location = New Point(12, 435)
         btn0.Name = "btn0"
         btn0.Size = New Size(75, 65)
         btn0.TabIndex = 12
@@ -205,10 +208,10 @@ Partial Class Form1
         ' 
         ' Button17
         ' 
-        Button17.Font = New Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button17.Location = New Point(12, 452)
+        Button17.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        Button17.Location = New Point(255, 435)
         Button17.Name = "Button17"
-        Button17.Size = New Size(315, 65)
+        Button17.Size = New Size(72, 65)
         Button17.TabIndex = 19
         Button17.Text = "="
         Button17.UseVisualStyleBackColor = True
@@ -216,12 +219,12 @@ Partial Class Form1
         ' txtbox1
         ' 
         txtbox1.BorderStyle = BorderStyle.None
-        txtbox1.Font = New Font("Times New Roman", 36F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        txtbox1.Font = New Font("Yu Gothic", 36F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         txtbox1.HideSelection = False
-        txtbox1.Location = New Point(12, 44)
+        txtbox1.Location = New Point(9, 60)
         txtbox1.Multiline = True
         txtbox1.Name = "txtbox1"
-        txtbox1.Size = New Size(315, 59)
+        txtbox1.Size = New Size(318, 59)
         txtbox1.TabIndex = 20
         txtbox1.Text = "0"
         txtbox1.TextAlign = HorizontalAlignment.Right
@@ -229,24 +232,57 @@ Partial Class Form1
         ' txtbox2
         ' 
         txtbox2.BorderStyle = BorderStyle.None
-        txtbox2.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtbox2.Location = New Point(9, 12)
+        txtbox2.Font = New Font("Yu Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtbox2.Location = New Point(9, 30)
         txtbox2.Multiline = True
         txtbox2.Name = "txtbox2"
         txtbox2.Size = New Size(318, 33)
         txtbox2.TabIndex = 21
         txtbox2.TextAlign = HorizontalAlignment.Right
         ' 
-        ' Form1
+        ' btnPlusOrMinus
+        ' 
+        btnPlusOrMinus.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold)
+        btnPlusOrMinus.Location = New Point(174, 435)
+        btnPlusOrMinus.Name = "btnPlusOrMinus"
+        btnPlusOrMinus.Size = New Size(75, 65)
+        btnPlusOrMinus.TabIndex = 22
+        btnPlusOrMinus.Text = "+/-"
+        btnPlusOrMinus.UseVisualStyleBackColor = True
+        ' 
+        ' btnPercentage
+        ' 
+        btnPercentage.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnPercentage.Location = New Point(171, 151)
+        btnPercentage.Name = "btnPercentage"
+        btnPercentage.Size = New Size(75, 65)
+        btnPercentage.TabIndex = 23
+        btnPercentage.Text = "%"
+        btnPercentage.UseVisualStyleBackColor = True
+        ' 
+        ' btnClear
+        ' 
+        btnClear.Font = New Font("Yu Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnClear.Location = New Point(12, 151)
+        btnClear.Name = "btnClear"
+        btnClear.Size = New Size(75, 65)
+        btnClear.TabIndex = 24
+        btnClear.Text = "CE"
+        btnClear.UseVisualStyleBackColor = True
+        ' 
+        ' Calculator
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(339, 537)
+        Controls.Add(btnClear)
+        Controls.Add(btnPercentage)
+        Controls.Add(btnPlusOrMinus)
         Controls.Add(txtbox2)
         Controls.Add(txtbox1)
         Controls.Add(Button17)
         Controls.Add(btnDivide)
-        Controls.Add(btnClear)
+        Controls.Add(btnAllClear)
         Controls.Add(btnDecimal)
         Controls.Add(btn0)
         Controls.Add(btnMultiply)
@@ -261,8 +297,8 @@ Partial Class Form1
         Controls.Add(btn3)
         Controls.Add(btn2)
         Controls.Add(btn1)
-        Name = "Form1"
-        Text = "Form1"
+        Name = "Calculator"
+        Text = "Calculator"
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -280,11 +316,14 @@ Partial Class Form1
     Friend WithEvents btn8 As Button
     Friend WithEvents btn7 As Button
     Friend WithEvents btnDivide As Button
-    Friend WithEvents btnClear As Button
+    Friend WithEvents btnAllClear As Button
     Friend WithEvents btnDecimal As Button
     Friend WithEvents btn0 As Button
     Friend WithEvents Button17 As Button
     Friend WithEvents txtbox1 As TextBox
     Friend WithEvents txtbox2 As TextBox
+    Friend WithEvents btnPlusOrMinus As Button
+    Friend WithEvents btnPercentage As Button
+    Friend WithEvents btnClear As Button
 
 End Class

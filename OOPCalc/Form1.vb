@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class Calculator
 
     Dim FirstNum As Decimal
     Dim SecondNum As Decimal
@@ -6,86 +6,63 @@
     Dim OperationSign As String
     Dim OperatorSelector As Boolean = False
 
-    Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
-        If txtbox1.Text <> "0" Then
-            txtbox1.Text += "1"
-        Else
-            txtbox1.Text = "1"
+    Private Sub Calculator_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.KeyPreview = True
+
+        Dim eqBtn As Button = TryCast(Me.Controls.Find("Button17", True).FirstOrDefault(), Button)
+        If eqBtn IsNot Nothing Then
+            Me.AcceptButton = eqBtn
+
         End If
+
+
+        txtbox1.ReadOnly = True
+        txtbox2.ReadOnly = True
+        txtbox1.Text = "0"
+    End Sub
+
+    Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
+        HandleDigit("1")
     End Sub
 
     Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
-        If txtbox1.Text <> "0" Then
-            txtbox1.Text += "2"
-        Else
-            txtbox1.Text = "2"
-        End If
+        HandleDigit("2")
     End Sub
 
     Private Sub btn3_Click(sender As Object, e As EventArgs) Handles btn3.Click
-        If txtbox1.Text <> "0" Then
-            txtbox1.Text += "3"
-        Else
-            txtbox1.Text = "3"
-        End If
+        HandleDigit("3")
     End Sub
 
     Private Sub btn4_Click(sender As Object, e As EventArgs) Handles btn4.Click
-        If txtbox1.Text <> "0" Then
-            txtbox1.Text += "4"
-        Else
-            txtbox1.Text = "4"
-        End If
+        HandleDigit("4")
     End Sub
 
     Private Sub btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
-        If txtbox1.Text <> "0" Then
-            txtbox1.Text += "5"
-        Else
-            txtbox1.Text = "5"
-        End If
+        HandleDigit("5")
     End Sub
 
     Private Sub btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
-        If txtbox1.Text <> "0" Then
-            txtbox1.Text += "6"
-        Else
-            txtbox1.Text = "6"
-        End If
+        HandleDigit("6")
     End Sub
 
     Private Sub btn7_Click(sender As Object, e As EventArgs) Handles btn7.Click
-        If txtbox1.Text <> "0" Then
-            txtbox1.Text += "7"
-        Else
-            txtbox1.Text = "7"
-        End If
+        HandleDigit("7")
     End Sub
 
     Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
-        If txtbox1.Text <> "0" Then
-            txtbox1.Text += "8"
-        Else
-            txtbox1.Text = "8"
-        End If
+        HandleDigit("8")
     End Sub
 
     Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
-        If txtbox1.Text <> "0" Then
-            txtbox1.Text += "9"
-        Else
-            txtbox1.Text = "9"
-        End If
+        HandleDigit("9")
     End Sub
 
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
-        If txtbox1.Text <> "0" Then
-            txtbox1.Text += "0"
-        End If
+        HandleDigit("0")
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        FirstNum = txtbox1.Text
+        FirstNum = CDec(txtbox1.Text)
         OperationSign = "+"
         txtbox2.Text = FirstNum & " " & OperationSign & " "
         txtbox1.Text = "0"
@@ -94,7 +71,7 @@
     End Sub
 
     Private Sub btnSubtract_Click(sender As Object, e As EventArgs) Handles btnSubtract.Click
-        FirstNum = txtbox1.Text
+        FirstNum = CDec(txtbox1.Text)
         OperationSign = "-"
         txtbox2.Text = FirstNum & " " & OperationSign & " "
         txtbox1.Text = "0"
@@ -103,8 +80,8 @@
     End Sub
 
     Private Sub btnMultiply_Click(sender As Object, e As EventArgs) Handles btnMultiply.Click
-        FirstNum = txtbox1.Text
-        OperationSign = "*"
+        FirstNum = CDec(txtbox1.Text)
+        OperationSign = "×"
         txtbox2.Text = FirstNum & " " & OperationSign & " "
         txtbox1.Text = "0"
         OperatorSelector = True
@@ -112,8 +89,8 @@
     End Sub
 
     Private Sub btnDivide_Click(sender As Object, e As EventArgs) Handles btnDivide.Click
-        FirstNum = txtbox1.Text
-        OperationSign = "/"
+        FirstNum = CDec(txtbox1.Text)
+        OperationSign = "÷"
         txtbox2.Text = FirstNum & " " & OperationSign & " "
         txtbox1.Text = "0"
         OperatorSelector = True
@@ -121,28 +98,32 @@
     End Sub
 
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
-        If OperatorSelector = True Then
-            SecondNum = txtbox1.Text
+        If Not Decimal.TryParse(txtbox1.Text, SecondNum) Then SecondNum = 0
+        If OperationNumber <> 0 Then
+            SecondNum = CDec(txtbox1.Text)
 
-            If OperationNumber = 1 Then
-                txtbox1.Text = FirstNum + SecondNum
-            ElseIf OperationNumber = 2 Then
-                txtbox1.Text = FirstNum - SecondNum
-            ElseIf OperationNumber = 3 Then
-                txtbox1.Text = FirstNum * SecondNum
-            Else
-                If SecondNum = 0 Then
-                    txtbox1.Text = "Error!"
-                Else
-                    txtbox1.Text = FirstNum / SecondNum
-                End If
-            End If
+            Select Case OperationNumber
+                Case 1
+                    txtbox1.Text = (FirstNum + SecondNum).ToString()
+                Case 2
+                    txtbox1.Text = (FirstNum - SecondNum).ToString()
+                Case 3
+                    txtbox1.Text = (FirstNum * SecondNum).ToString()
+                Case 4
+                    If SecondNum = 0 Then
+                        txtbox1.Text = "Error!"
+                    Else
+                        txtbox1.Text = (FirstNum / SecondNum).ToString()
+                    End If
+            End Select
+
             txtbox2.Text = FirstNum & " " & OperationSign & " " & SecondNum & " = "
             OperatorSelector = False
+            OperationNumber = 0
         End If
     End Sub
 
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnAllClear.Click
         txtbox1.Text = "0"
         txtbox2.Text = ""
     End Sub
@@ -156,4 +137,108 @@
             txtbox1.Text += "."
         End If
     End Sub
+
+    Private Sub btnPlusOrMinus_Click(sender As Object, e As EventArgs) Handles btnPlusOrMinus.Click
+        If Not txtbox1.Text = "" Then
+            txtbox1.Text *= -1
+        End If
+    End Sub
+
+    Private Sub btnPercentage_Click(sender As Object, e As EventArgs) Handles btnPercentage.Click
+        If OperatorSelector = False Then
+            FirstNum = CDec(txtbox1.Text)
+            FirstNum = FirstNum / 100
+            txtbox2.Text = FirstNum
+            txtbox1.Text = FirstNum
+        Else
+            SecondNum = CDec(txtbox1.Text)
+            SecondNum = (FirstNum * SecondNum) / 100
+            txtbox1.Text = SecondNum
+        End If
+
+    End Sub
+
+    Private Sub btnClear_Click_1(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtbox1.Text = ""
+    End Sub
+
+    Private Sub HandleDigit(digit As String)
+        If txtbox1.Text = "0" OrElse txtbox1.Text = "" OrElse OperatorSelector Then
+            txtbox1.Text = digit
+            OperatorSelector = False
+        Else
+            txtbox1.Text &= digit
+        End If
+    End Sub
+
+    Private Sub Calculator_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.Shift AndAlso e.KeyCode = Keys.D8 Then
+            btnMultiply.PerformClick()
+            e.SuppressKeyPress = True
+            e.Handled = True
+            Return
+        End If
+
+        Select Case e.KeyCode
+            Case Keys.D0, Keys.NumPad0 : btn0.PerformClick()
+            Case Keys.D1, Keys.NumPad1 : btn1.PerformClick()
+            Case Keys.D2, Keys.NumPad2 : btn2.PerformClick()
+            Case Keys.D3, Keys.NumPad3 : btn3.PerformClick()
+            Case Keys.D4, Keys.NumPad4 : btn4.PerformClick()
+            Case Keys.D5, Keys.NumPad5 : btn5.PerformClick()
+            Case Keys.D6, Keys.NumPad6 : btn6.PerformClick()
+            Case Keys.D7, Keys.NumPad7 : btn7.PerformClick()
+            Case Keys.D8
+                If Not e.Shift Then btn8.PerformClick()
+            Case Keys.NumPad8
+                btn8.PerformClick()
+            Case Keys.D9, Keys.NumPad9 : btn9.PerformClick()
+
+            Case Keys.Enter
+                Button17.PerformClick()
+                e.SuppressKeyPress = True
+                e.Handled = True
+
+            Case Keys.Add : btnAdd.PerformClick()
+            Case Keys.Oemplus
+                If e.Shift Then
+                    btnAdd.PerformClick()
+                Else
+                    Button17.PerformClick()
+                End If
+            Case Keys.Subtract, Keys.OemMinus : btnSubtract.PerformClick()
+            Case Keys.Multiply : btnMultiply.PerformClick()
+            Case Keys.Divide, Keys.OemQuestion : btnDivide.PerformClick()
+            Case Keys.Decimal : btnDecimal.PerformClick()
+            Case Keys.Back
+                If txtbox1.Text.Length > 1 Then
+                    txtbox1.Text = txtbox1.Text.Substring(0, txtbox1.Text.Length - 1)
+                Else
+                    txtbox1.Text = "0"
+                End If
+        End Select
+
+        e.SuppressKeyPress = True
+        e.Handled = True
+    End Sub
+
+    Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
+
+        If (keyData And Keys.KeyCode) = Keys.Enter OrElse (keyData And Keys.KeyCode) = Keys.Return Then
+            Try
+                If Button17 IsNot Nothing AndAlso Button17.Enabled AndAlso Button17.Visible Then
+                    Button17.PerformClick()
+                    Return True
+                End If
+            Catch ex As Exception
+
+            End Try
+        End If
+
+        Return MyBase.ProcessCmdKey(msg, keyData)
+    End Function
+
+
+
+
 End Class
