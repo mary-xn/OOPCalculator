@@ -1,4 +1,6 @@
-﻿Public Class Calculator
+﻿Imports System.Drawing.Drawing2D
+
+Public Class Calculator
 
     Dim FirstNum As Decimal
     Dim SecondNum As Decimal
@@ -7,6 +9,40 @@
     Dim OperatorSelector As Boolean = False
 
     Private Sub Calculator_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        For Each ctrl As Control In Me.Controls
+            If TypeOf ctrl Is Button Then
+                Dim btn As Button = DirectCast(ctrl, Button)
+                btn.FlatStyle = FlatStyle.Flat
+                btn.FlatAppearance.BorderColor = Color.DarkGray
+                btn.FlatAppearance.BorderSize = 1
+
+            End If
+        Next
+
+        btnAllClear.FlatAppearance.MouseOverBackColor = Color.White
+        btnClear.FlatAppearance.MouseOverBackColor = Color.White
+        btnAdd.FlatAppearance.MouseOverBackColor = Color.White
+        btnSubtract.FlatAppearance.MouseOverBackColor = Color.White
+        btnMultiply.FlatAppearance.MouseOverBackColor = Color.White
+        btnPercentage.FlatAppearance.MouseOverBackColor = Color.White
+        btnDivide.FlatAppearance.MouseOverBackColor = Color.White
+        Button17.FlatAppearance.MouseOverBackColor = Color.Red
+
+        btn0.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btn1.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btn2.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btn3.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btn4.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btn5.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btn6.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btn7.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btn8.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btn9.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btnPlusOrMinus.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btnDecimal.FlatAppearance.MouseOverBackColor = Color.Maroon
+
+
+
         Me.KeyPreview = True
 
         Dim eqBtn As Button = TryCast(Me.Controls.Find("Button17", True).FirstOrDefault(), Button)
@@ -62,6 +98,9 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        If OperationNumber <> 0 Then
+            PerformCalculation()
+        End If
         FirstNum = CDec(txtbox1.Text)
         OperationSign = "+"
         txtbox2.Text = FirstNum & " " & OperationSign & " "
@@ -71,6 +110,9 @@
     End Sub
 
     Private Sub btnSubtract_Click(sender As Object, e As EventArgs) Handles btnSubtract.Click
+        If OperationNumber <> 0 Then
+            PerformCalculation()
+        End If
         FirstNum = CDec(txtbox1.Text)
         OperationSign = "-"
         txtbox2.Text = FirstNum & " " & OperationSign & " "
@@ -80,6 +122,9 @@
     End Sub
 
     Private Sub btnMultiply_Click(sender As Object, e As EventArgs) Handles btnMultiply.Click
+        If OperationNumber <> 0 Then
+            PerformCalculation()
+        End If
         FirstNum = CDec(txtbox1.Text)
         OperationSign = "×"
         txtbox2.Text = FirstNum & " " & OperationSign & " "
@@ -89,6 +134,9 @@
     End Sub
 
     Private Sub btnDivide_Click(sender As Object, e As EventArgs) Handles btnDivide.Click
+        If OperationNumber <> 0 Then
+            PerformCalculation()
+        End If
         FirstNum = CDec(txtbox1.Text)
         OperationSign = "÷"
         txtbox2.Text = FirstNum & " " & OperationSign & " "
@@ -98,6 +146,10 @@
     End Sub
 
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
+        PerformCalculation()
+    End Sub
+
+    Private Sub PerformCalculation()
         If Not Decimal.TryParse(txtbox1.Text, SecondNum) Then SecondNum = 0
         If OperationNumber <> 0 Then
             SecondNum = CDec(txtbox1.Text)
@@ -118,10 +170,12 @@
             End Select
 
             txtbox2.Text = FirstNum & " " & OperationSign & " " & SecondNum & " = "
+            FirstNum = CDec(txtbox1.Text)  ' Store result for chaining
             OperatorSelector = False
             OperationNumber = 0
         End If
     End Sub
+
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnAllClear.Click
         txtbox1.Text = "0"
